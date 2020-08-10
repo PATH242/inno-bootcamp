@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int x[3],y[3],a[3];
+double s;
 int main ( ) {
 
   for(int i=0;i<3;i++)
@@ -9,8 +10,12 @@ int main ( ) {
   a[1]= sqrt( pow ( (x[2]-x[1]), 2 )  + pow(  (y[2]-y[1] ) , 2)  );
   a[2]= sqrt( pow ( (x[2]-x[0]), 2 )  + pow(  (y[2]-y[0] ) , 2) ) ;
   sort(a,a+3);
-  if( a[0]+a[1] >= a[2] ) 
-    cout<<"Those points can create a triangle\n";
+  if( a[0]+a[1] >= a[2] ) {
+     cout<<"Those points can create a triangle and its area = ";
+     s= a[0]+a[1]+a[2]; s/=2;
+     s= sqrt( s*(s-a[0])*(s-a[2])*(s-a[1]) );
+     cout<<s<<'\n';
+   }
   else
     cout<<"Those points can't create a triangle\n";
   return 0;
